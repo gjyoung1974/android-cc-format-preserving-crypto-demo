@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
 
 import com.gyoung.crypto.botan.android.demo.R;
 
@@ -19,9 +21,8 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("test-botan");
     }
 
-    //private native String getGPSCoordinates(String rootPath);
-   public native String stringFromJNI();
-    // public static native String pbkdf2Demo(int iterations);
+    //bring in our JNI Method
+   public native String stringFromJNI(String ccid, String passwd);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +31,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        AppCompatButton fab = (AppCompatButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                TextView ccid_field = (TextView) findViewById(R.id.ccid);
+                CharSequence ccid = ccid_field.getText().toString();
+
+                TextView passwd_field = (TextView) findViewById(R.id.passwd);
+                CharSequence passwd = passwd_field.getText().toString();
+
+                String s_result = stringFromJNI(ccid.toString(), passwd.toString());
+
+                TextView field = (TextView) findViewById(R.id.text);
+                field.setText(s_result);
             }
         });
-
-        TextView field = (TextView) findViewById(R.id.text);
-        field.setText(stringFromJNI());
     }
 
     @Override

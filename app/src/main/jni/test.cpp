@@ -74,17 +74,24 @@ uint64_t encrypt_cc_number(uint64_t cc_number,
 
 extern "C"
 jstring
-Java_com_gyoung_crypto_botan_android_demo_MainActivity_stringFromJNI(
-        JNIEnv *env,
-        jobject /* this */) {
+Java_com_gyoung_crypto_botan_android_demo_MainActivity_stringFromJNI(JNIEnv * env, jobject jobj, jstring ccid, jstring passwd) {
 
-    const uint64_t cc_number = 4111111111111111; //test Visa number
+    jboolean isCopy;
+    std::string s_ccid;
+    s_ccid = env->GetStringUTFChars(ccid, &isCopy);
+
+    jboolean isCopy2;
+    std::string s_passwd;
+    s_passwd = env->GetStringUTFChars(passwd, &isCopy2);
+
+    const uint64_t cc_number = std::stoull(s_ccid); //test Visa number
     const std::vector<uint8_t> tweak;
-    const std::string pass = "Password1!"; //TODO: need an architecture for Zero knowledge sercret derevation for PBKDF secret
+    //const std::string pass = "Password1!";
+    // TODO: need an architecture for Zero knowledge sercret derevation for PBKDF secret
 
     std::unique_ptr<Botan::PBKDF> pbkdf(Botan::PBKDF::create("PBKDF2(SHA-256)"));
 
-    Botan::secure_vector<uint8_t> key = pbkdf->pbkdf_iterations(32, pass, tweak.data(), tweak.size(), 100000);
+    Botan::secure_vector<uint8_t> key = pbkdf->pbkdf_iterations(32, s_passwd, tweak.data(), tweak.size(), 100000);
 
     uint64_t ffx =  encrypt_cc_number(cc_number, key, tweak);
 
