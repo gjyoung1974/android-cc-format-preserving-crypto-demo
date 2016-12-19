@@ -1,5 +1,10 @@
 # android-cc-format-preserving-crypto-demo
 android-cc-format-preserving-crypto-demo
+format preserving encryption
+
+format preserving encryption for Android
+
+Android format preserving encryption
 
 This projects demonstrates how to perform format preserving encryption natively from an Android application
 
