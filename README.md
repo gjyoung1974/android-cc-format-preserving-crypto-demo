@@ -1,5 +1,10 @@
 # android-cc-format-preserving-crypto-demo
 android-cc-format-preserving-crypto-demo
+format preserving encryption
+
+format preserving encryption for Android
+
+Android format preserving encryption
 
 This projects demonstrates how to perform format preserving encryption natively from an Android application
 
@@ -11,6 +16,7 @@ configured for android with amalgamation
 
 grabbed lastest ndk
 crystax-ndk-10.3.2-b917-darwin-x86_64
+https://dl.crystax.net/builds/917/
 
 used
 Android studio 2.2.3
