@@ -23,12 +23,22 @@
 
     <include layout="@layout/content_decrypt" />
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/appCompatButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        android:text="Decrypt" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_lock_idle_lock" />
 
 </android.support.design.widget.CoordinatorLayout>

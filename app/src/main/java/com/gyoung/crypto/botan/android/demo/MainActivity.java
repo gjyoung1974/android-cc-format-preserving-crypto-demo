@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        
+
         AppCompatButton appButton = (AppCompatButton) findViewById(R.id.bEncrypt);
         appButton.setOnClickListener(new View.OnClickListener() {
             @Override
