@@ -24,7 +24,7 @@
     <include layout="@layout/content_decrypt" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/appCompatButton1"
+        android:id="@+id/bDecrypt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"

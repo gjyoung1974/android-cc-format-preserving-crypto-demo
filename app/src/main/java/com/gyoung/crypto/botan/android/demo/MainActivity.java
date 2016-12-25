@@ -13,9 +13,6 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.content.Context;
 
-
-import com.gyoung.crypto.botan.android.demo.R;
-
 public class MainActivity extends AppCompatActivity {
 
     static {
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //bring in our JNI Method
-   public native String stringFromJNI(String ccid, String passwd);
+    public native String EncryptCCString(String ccid, String passwd);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView passwd_field = (TextView) findViewById(R.id.passwd);
                 CharSequence passwd = passwd_field.getText().toString();
 
-                String s_result = stringFromJNI(ccid.toString(), passwd.toString());
+                String s_result = EncryptCCString(ccid.toString(), passwd.toString());
 
                 TextView field = (TextView) findViewById(R.id.text);
                 field.setText(s_result);
