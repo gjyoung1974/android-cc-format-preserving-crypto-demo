@@ -1,9 +1,9 @@
 /*
-Copyleft 2016 Gordon Young
+Copyleft 2017 Gordon Young
 gjyoung1974@gmail.com
 
 This class demonstrates Botan's Credit Card Number format preserving Crypto
-TODO: need an architecture for Zero knowledge sercret derevation for PBKDF secret
+TODO: need to design an architecture for zero-knowledge secret derivation for PBKDF secret
 
 */
 
